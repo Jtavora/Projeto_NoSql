@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cursos</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 4em;
+    }
+
+    .nome-aluno {
+      color: #00ff00; /* Cor verde para o nome do aluno (pode ajustar para a cor desejada) */
+    }
+
+    p {
+      font-size: 1.5em;
+    }
+
+    main {
+      width: 80%;
+      max-width: 800px;
+    }
+
+    .cursos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .curso {
+      width: 100%;
+      padding: 20px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .curso img {
+      width: 100%;
+    }
+
+    .curso h2 {
+      font-size: 2em;
+    }
+
+    .curso p {
+      font-size: 1.5em;
+    }
+
+    .curso a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .curso a:hover {
+      color: #ff0000;
+    }
+
+    .curso button {
+      margin-top: 10px;
+      background-color: blue;
+      color: white;
+      padding: 10px;
+      border: none;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tk`s Cursos</h1>
+    <p>Certificado do aluno <span class="nome-aluno">{{ certificado['nome_aluno'] }}</span></p>
+  </header>
+  <main>
+    <div class="cursos">
+      <div class="curso">
+        <p>Curso: {{ certificado['curso'] }}</p>
+        <p>Carga horaria: {{ certificado['carga_horaria_curso']}}h</p>
+        <p>Professor: {{ certificado['nome_professor'] }}</p>
+        <p>Coordenador: {{ certificado['nome_coordenador'] }}</p>
+        <button onclick="window.history.back()" style="background-color: blue; color: white; padding: 10px; border: none; text-decoration: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">Voltar a clientes</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>Copyright © 2023</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cursos</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body style="background-color: #000;">
+  <header>
+    <h1 style="color: #fff;">Tk`s Cursos</h1>
+    <p style="color: #fff;">Gerencie os clientes e acesse seus certificados</p>
+  </header>
+  <main>
+    {%for cliente in clientes%}
+
+    <div class="cursos">
+      <div class="curso">
+        <p style="color: #fff;">{{cliente['nome_completo']}}</p>
+        <p style="color: #fff; font-size: medium;">Email: {{cliente['email']}}</p>
+        <p style="color: #fff; font-size: medium">Localizacao: {{cliente['localizacao']}}</p>
+        <p style="color: #fff; font-size: medium">Sexo: {{cliente['sexo']}}</p>
+        <p style="color: #fff; font-size: medium">Idade: {{cliente['idade']}}</p>
+        <a href="/informacao_cert/{{cliente['id_mongo_certificado']}}" style="color: green;">Informacoes certificado</a>
+        <br />
+        <a href="/get_certificado/{{cliente['id_mongo_certificado']}}" style="color: green;">Baixar certificado</a>
+        <br />
+        <a href="/apaga_cliente/{{cliente['id']}}" style="color: red;">Apagar Cliente</a>
+      </div>
+    </div>
+
+    {% endfor %}
+  </main>
+  <footer>
+    <p style="color: #fff;">Copyright © 2023</p>
+  </footer>
+
+  <!-- Botão de Retornar ao Topo -->
+  <button onclick="topFunction()" id="btnTop" title="Retornar ao Topo" style="position: fixed; bottom: 20px; right: 20px; display: none; background-color: green; color: white; border: none; padding: 10px; cursor: pointer; border-radius: 5px;">Topo</button>
+
+  <!-- Botão de Retornar à Tela Inicial -->
+  <a href="/Inicio" style="position: fixed; bottom: 70px; right: 20px; background-color: blue; color: white; padding: 10px; text-decoration: none; border-radius: 5px;">Voltar à Tela Inicial</a>
+
+  <script>
+    // Função para rolar suavemente para o topo da página
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+    // Exibir ou ocultar o botão de retorno ao topo com base na posição de rolagem
+    window.onscroll = function() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("btnTop").style.display = "block";
+      } else {
+        document.getElementById("btnTop").style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>

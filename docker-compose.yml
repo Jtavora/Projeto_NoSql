@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: tavora
+      POSTGRES_PASSWORD: '30092003'
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./script:/docker-entrypoint-initdb.d
+
+  mongo:
+    image: mongo:4.4.6
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: tavora
+      MONGO_INITDB_ROOT_PASSWORD: tavora123
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  apiori:
+    image: apiori
+    container_name: apiori
+    build:
+      context: api
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+      - mongo
+
+  front:
+    image: front
+    container_name: front
+    build:
+      context: front
+    ports:
+      - "5001:5001"
+    depends_on:
+      - postgres
+      - mongo
+
+networks:
+  projeto:
+
+volumes:
+  postgres_data:
+  mongo_data:

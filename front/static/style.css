@@ -1,0 +1,59 @@
+body {
+    background-image: url('image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  header {
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 4em;
+  }
+  
+  p {
+    font-size: 1.5em;
+  }
+  
+  main {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .cursos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .curso {
+    width: 33%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 20px; /* Adicionado margin para espaçamento entre os certificados */
+    box-sizing: border-box; /* Garante que a largura inclua padding e borda */
+  }
+  
+  .curso img {
+    width: 100%;
+  }
+  
+  .curso h2 {
+    font-size: 2em;
+  }
+  
+  .curso p {
+    font-size: 1.5em;
+  }
+  
+  .curso a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .curso a:hover {
+    color: #ff0000;
+  }
+  
