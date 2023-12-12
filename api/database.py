@@ -14,7 +14,7 @@ def connect_db_postgres():
         host='postgres',
         database='postgres',
         user='tavora',
-        password='tavora123'
+        password='30092003'
     )
 
     return conn
